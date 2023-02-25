@@ -1,4 +1,4 @@
-# Countries Information Website (REST Countries API) (by Vue CLI)
+# Countries Information Website (REST Countries API)  (by Vue CLI)
 
 ## Project Progress : ![10%](https://progress-bar.dev/10/?title=done)
 
