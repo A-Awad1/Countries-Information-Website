@@ -1,9 +1,6 @@
-# Countries Information Website (REST Countries API)
+# Countries Information Website (REST Countries API) (by Vue CLI)
 
-## (built by Vue CLI)
-
-Project Progress :
-![10%](https://progress-bar.dev/10/?title=done)
+## Project Progress : ![10%](https://progress-bar.dev/10/?title=done)
 
 This project challenge by Frontend Mentor.
 
