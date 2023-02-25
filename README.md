@@ -5,7 +5,7 @@
 This project challenge by Frontend Mentor.
 
 This Website helps you to see the details of any country in the world. All data in the website fetched
-from the Rest Countries API [REST Countries API](https://restcountries.com).
+from [REST Countries API](https://restcountries.com).
 
 This challenge is built by Vue CLI.
 
