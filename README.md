@@ -1,7 +1,9 @@
-# Frontend Mentor - REST Countries API with color theme switcher
+# Countries Information Website (REST Countries API) (built by Vue CLI)
 
 Project Progress :
 ![10%](https://progress-bar.dev/10/?title=done)
+
+This project challenge by Frontend Mentor.
 
 This challenge is to integrate with the [REST Countries API](https://restcountries.com) to pull country
 data and display it like in the designs.
