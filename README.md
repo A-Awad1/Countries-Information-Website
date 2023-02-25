@@ -1,23 +1,11 @@
-# Countries Information Website (REST Countries API)  (by Vue CLI)
+# Countries Information Website (REST Countries API) (by Vue CLI)
 
-## Project Progress : ![10%](https://progress-bar.dev/10/?title=done)
+**Project Progress : ![10%](https://progress-bar.dev/10/?title=done)**
 
-This project challenge by Frontend Mentor.
+This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
 This Website helps you to see the details of any country in the world. All data in the website fetched
 from [REST Countries API](https://restcountries.com).
-
-This challenge is built by Vue CLI.
-
-Technologies Used:
-
-- HTML
-- CSS
-- JavaScript
-- SASS
-- Vue
-
-This challenge is responsive in all devices.
 
 Features:
 
@@ -27,6 +15,18 @@ Features:
 - Click on a country to see more detailed information on a separate page.
 - Toggle the color scheme between light and dark mode and the value stored in local storage.
 - View the optimal layout depending on the device's screen size.
+
+This challenge is built by Vue CLI.
+
+This challenge is responsive in all devices.
+
+Technologies Used:
+
+- HTML
+- CSS
+- JavaScript
+- SASS
+- Vue
 
 <!--
 [See Website Live]()
