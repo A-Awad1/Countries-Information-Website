@@ -1,11 +1,12 @@
 # Frontend Mentor - REST Countries API with color theme switcher
 
-Project Progress : ![10%](https://progress-bar.dev/10/?title=done)
+Project Progress :
+![10%](https://progress-bar.dev/10/?title=done)
 
 This challenge is to integrate with the [REST Countries API](https://restcountries.com) to pull country
 data and display it like in the designs.
 
-This challenge is built by Vue CLI
+This challenge is built by Vue CLI.
 
 Technologies Used:
 
@@ -15,7 +16,7 @@ Technologies Used:
 - SASS
 - Vue
 
-This challenge is responsive in all devices and I don't use any framework.
+This challenge is responsive in all devices.
 
 Users can:
 
