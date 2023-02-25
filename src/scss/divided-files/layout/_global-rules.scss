@@ -1,0 +1,39 @@
+/* Start website scroll */
+html {
+  scroll-behavior: smooth;
+}
+$scroll : "::-webkit-scrollbar";
+#{$scroll}{
+  width: 15px;
+}
+#{$scroll}-track{
+  background-color: #ccc;
+}
+#{$scroll}-thumb{
+  background-color: #0075ff;
+  &:hover{
+    background-color: #0d69d5;
+  }
+}
+/* End website scroll */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &:focus{
+    outline: none;
+  }
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
