@@ -1,6 +1,6 @@
 # Countries Information Website (REST Countries API) (by Vue CLI)
 
-**Project Progress : ![10%](https://progress-bar.dev/10/?title=done)**
+**Project Progress : ![15%](https://progress-bar.dev/10/?title=done)**
 
 This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
