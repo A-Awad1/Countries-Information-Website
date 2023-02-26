@@ -4,11 +4,9 @@
       <h1>Where in the world?</h1>
       <span>
         <font-awesome-icon icon="fa-regular fa-moon" />
-        Dark Mode
+        <span class="app-mode">Dark Mode</span>
       </span>
     </div>
-    <!-- <router-link to="/">Home</router-link> | -->
-    <!-- <router-link to="/about">About</router-link> -->
   </nav>
 </template>
 
@@ -31,14 +29,18 @@ nav {
     h1 {
       font-size: 20px;
     }
-    span {
+    > span {
       font: {
         weight: 600;
         size: 14px;
       }
       svg {
-        margin-right: 3px;
+        margin-right: 8px;
         transform: rotate(-30deg);
+      }
+      &:hover {
+        cursor: pointer;
+        user-select: none;
       }
     }
   }

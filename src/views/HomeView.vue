@@ -1,16 +1,18 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="container">
+      <FilterElements msg="Welcome to Your Vue.js App" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import FilterElements from "@/components/FilterElements.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    FilterElements,
   },
 };
 </script>

@@ -7,12 +7,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // import specific icons
-import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserSecret,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 // add icons to the library
-library.add(faTwitter, faMoon, faUserSecret);
+library.add(faTwitter, faMoon, faUserSecret, faMagnifyingGlass);
 
 // add font awesome icon component
 Vue.component("font-awesome-icon", FontAwesomeIcon);
