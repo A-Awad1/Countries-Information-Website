@@ -23,8 +23,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: {
-      top: 20px;
-      bottom: 20px;
+      top: $main-padding;
+      bottom: $main-padding;
     }
     h1 {
       font-size: 20px;

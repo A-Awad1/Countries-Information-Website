@@ -26,10 +26,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// @import "../scss/main.scss";
 section {
   display: flex;
   justify-content: space-between;
-  // color: $main-color;
+  color: $main-color;
 }
 </style>
