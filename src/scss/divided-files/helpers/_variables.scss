@@ -1,9 +1,13 @@
 $main-padding : 20px;
 $main-transition : 0.3s;
-$Very-Dark-Blue: hsl(200, 15%, 8%);
-$Dark-Gray: hsl(0, 0%, 52%);
-$Very-Light-Gray: hsl(0, 0%, 98%);
-$Very-Dark-Blue : hsl(207, 26%, 17%);
-$Dark-Blue: hsl(209, 23%, 22%);
-
-$main-color:red;
+$main-border-radius:6px;
+/* colors */
+// light mode
+$lText : hsl(200, 15%, 8%); /* Very Dark Blue */
+$lBackground :  hsl(0, 0%, 98%); /* Very Light Gray */
+$lElements:  hsl(0, 0%, 100%); /* White */
+$lInput :  hsl(0, 0%, 52%); /* Dark Gray */
+// dark mode
+$dText : hsl(0, 0%, 100%); /* Dark Gray */
+$dBackground : hsl(207, 26%, 17%); /* Very Dark Blue */
+$dElements : hsl(209, 23%, 22%); /* Dark Blue */

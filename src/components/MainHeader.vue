@@ -18,14 +18,16 @@ export default {
 
 <style scoped lang="scss">
 nav {
+  width: 100%;
+  padding: {
+    top: $main-padding;
+    bottom: $main-padding;
+  }
   .container {
     display: flex;
+    gap: 15px;
     justify-content: space-between;
     align-items: center;
-    padding: {
-      top: $main-padding;
-      bottom: $main-padding;
-    }
     h1 {
       font-size: 20px;
     }
