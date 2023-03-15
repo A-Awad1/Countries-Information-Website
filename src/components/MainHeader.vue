@@ -2,9 +2,9 @@
   <nav>
     <div class="container">
       <h1>Where in the world?</h1>
-      <span>
+      <span @click="changeMode()">
         <font-awesome-icon icon="fa-regular fa-moon" />
-        <span class="app-mode">Dark Mode</span>
+        <span class="app-mode" v-text="mode"></span>
       </span>
     </div>
   </nav>
@@ -13,6 +13,20 @@
 <script>
 export default {
   name: "MainHeader",
+  data: function () {
+    return {
+      mode: "Dark Mode",
+    };
+  },
+  methods: {
+    changeMode: function () {
+      if (this.mode === "Dark Mode") {
+        this.mode = "Light Mode";
+      } else {
+        this.mode = "Dark Mode";
+      }
+    },
+  },
 };
 </script>
 

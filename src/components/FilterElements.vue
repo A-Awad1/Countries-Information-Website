@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!-- <h1>{{ msg | uppercase }}</h1> -->
     <div class="div-input">
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       <input type="text" placeholder="Search for a country" />
@@ -53,7 +52,7 @@ section {
     box-shadow: 0px 0px 8px -5px $lInput;
     display: flex;
     align-items: center;
-    cursor: pointer;
+
     svg {
       margin: {
         left: 23px;
@@ -65,7 +64,6 @@ section {
       background-color: inherit;
       width: 100%;
       padding-right: 10px;
-      cursor: inherit;
     }
   }
   .div-select {
@@ -82,6 +80,7 @@ section {
       width: 180px;
       cursor: pointer;
       padding-left: 15px;
+      user-select: none;
     }
     svg {
       position: absolute;
