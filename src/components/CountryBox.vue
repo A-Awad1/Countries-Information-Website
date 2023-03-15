@@ -1,11 +1,11 @@
 <template>
   <section>
-    <img src="" />
+    <img :src="flagSrc" :alt="flagAlt" />
     <div>
-      <h3></h3>
-      <div><span>Population: </span><span></span></div>
-      <div><span>Region: </span><span></span></div>
-      <div><span>Capital: </span><span></span></div>
+      <h3 v-text="name"></h3>
+      <div><span>Population: </span><span v-text="population"></span></div>
+      <div><span>Region: </span><span v-text="region"></span></div>
+      <div><span>Capital: </span><span v-text="capital"></span></div>
     </div>
   </section>
 </template>
@@ -13,6 +13,7 @@
 <script>
 export default {
   name: "CountryBox",
+  props: ["flagSrc", "flagAlt", "name", "population", "region", "capital"],
 };
 </script>
 

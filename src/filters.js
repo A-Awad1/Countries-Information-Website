@@ -1,5 +1,5 @@
 import Vue from "vue";
 
-Vue.filter("uppercase", function (e) {
-  return e.toUpperCase();
+Vue.filter("formatNumber", function (e) {
+  return e.toLocaleString();
 });
