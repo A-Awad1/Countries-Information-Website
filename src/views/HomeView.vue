@@ -40,11 +40,6 @@ export default {
       }
     },
   },
-  filters: {
-    flagHeight: function (e) {
-      return e.replace("w320", "h120");
-    },
-  },
   mounted() {
     this.getAllData();
   },
@@ -62,7 +57,16 @@ export default {
   box-shadow: inset 0 3px 6px -6px $lInput;
   .container {
     .all-countries {
+      margin-top: 20px;
       display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 70px;
+      @include underTablet {
+        justify-content: center;
+        padding: 0 35px;
+        grid-template-columns: minmax(200px, 300px);
+        min-width: 200px;
+      }
     }
   }
 }

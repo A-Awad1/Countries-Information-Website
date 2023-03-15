@@ -2,7 +2,7 @@
   <nav>
     <div class="container">
       <h1>Where in the world?</h1>
-      <span @click="changeMode()">
+      <span @click="darkMode = !darkMode">
         <font-awesome-icon icon="fa-regular fa-moon" />
         <span class="app-mode" v-text="mode"></span>
       </span>
@@ -15,16 +15,12 @@ export default {
   name: "MainHeader",
   data: function () {
     return {
-      mode: "Dark Mode",
+      darkMode: false,
     };
   },
-  methods: {
-    changeMode: function () {
-      if (this.mode === "Dark Mode") {
-        this.mode = "Light Mode";
-      } else {
-        this.mode = "Dark Mode";
-      }
+  computed: {
+    mode: function () {
+      return this.darkMode ? "Light Mode" : "Dark Mode";
     },
   },
 };
@@ -43,11 +39,15 @@ nav {
     justify-content: space-between;
     align-items: center;
     h1 {
-      font-size: 20px;
+      font-size: 22px;
+      @include underTablet {
+        font-size: 18px;
+      }
     }
+
     > span {
       font: {
-        weight: 600;
+        weight: 800;
         size: 14px;
       }
       svg {
