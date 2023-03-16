@@ -1,11 +1,13 @@
 <template>
-  <section>
+  <section v-if="filtration">
     <img :src="flagSrc" :alt="flagAlt" />
     <div>
       <h4 v-text="name"></h4>
       <div><span>Population: </span><span v-text="population"></span></div>
       <div><span>Region: </span><span v-text="region"></span></div>
-      <div><span>Capital: </span><span v-text="capital"></span></div>
+      <div>
+        <span>Capital: </span><span v-text="capital || 'No Capital'"></span>
+      </div>
     </div>
   </section>
 </template>
@@ -13,7 +15,25 @@
 <script>
 export default {
   name: "CountryBox",
-  props: ["flagSrc", "flagAlt", "name", "population", "region", "capital"],
+  props: [
+    "flagSrc",
+    "flagAlt",
+    "name",
+    "population",
+    "region",
+    "capital",
+    "filterName",
+    "filterRegion",
+  ],
+  computed: {
+    filtration: function () {
+      return new RegExp(this.filterName, "ig").test(this.name) &&
+        (new RegExp(this.filterRegion, "ig").test(this.region) ||
+          this.filterRegion === "")
+        ? true
+        : false;
+    },
+  },
 };
 </script>
 
@@ -28,7 +48,6 @@ section {
   overflow: hidden;
   img {
     width: 100%;
-    // max-width: 100%;
     height: 150px;
   }
   > div {
