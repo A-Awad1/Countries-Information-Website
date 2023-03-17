@@ -2,7 +2,7 @@
   <div id="app">
     <MainHeader />
     <!-- <router-link to="/">Home</router-link> | -->
-    <!-- <router-link to="/about">About</router-link> -->
+    <!-- <router-link to="/details">details</router-link> -->
     <router-view />
   </div>
 </template>

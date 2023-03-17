@@ -7,3 +7,7 @@ Vue.filter("formatNumber", function (e) {
 Vue.filter("flagHeight", function (e) {
   return e.replace("w320", "h120");
 });
+
+Vue.filter("joinArray", function (e) {
+  return [...e].join(", ");
+});

@@ -11,12 +11,20 @@ import {
   faUserSecret,
   faMagnifyingGlass,
   faAngleDown,
+  faArrowLeftLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 // add icons to the library
-library.add(faTwitter, faMoon, faUserSecret, faMagnifyingGlass, faAngleDown);
+library.add(
+  faTwitter,
+  faMoon,
+  faUserSecret,
+  faMagnifyingGlass,
+  faAngleDown,
+  faArrowLeftLong
+);
 
 // add font awesome icon component
 Vue.component("font-awesome-icon", FontAwesomeIcon);

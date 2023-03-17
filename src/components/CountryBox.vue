@@ -1,5 +1,9 @@
 <template>
-  <section v-if="filtration">
+  <router-link
+    tag="section"
+    :to="{ name: 'details', params: { name: name } }"
+    v-if="filtration"
+  >
     <img :src="flagSrc" :alt="flagAlt" />
     <div>
       <h4 v-text="name"></h4>
@@ -9,7 +13,7 @@
         <span>Capital: </span><span v-text="capital || 'No Capital'"></span>
       </div>
     </div>
-  </section>
+  </router-link>
 </template>
 
 <script>
