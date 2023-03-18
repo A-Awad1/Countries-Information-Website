@@ -7,12 +7,12 @@ $scroll : "::-webkit-scrollbar";
   width: 15px;
 }
 #{$scroll}-track{
-  background-color: $lBackground;
+  background-color: var(--background-color);
 }
 #{$scroll}-thumb{
-  background-color: $lText;
+  background-color: var(--text-color);
   &:hover{
-    background-color: $lText;
+    background-color: var(--text-color);
   }
 }
 /* End website scroll */

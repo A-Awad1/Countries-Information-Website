@@ -45,9 +45,9 @@ export default {
 section {
   font-size: 14px;
   border-radius: $main-border-radius;
-  box-shadow: 0px 0px 8px -5px $lInput;
+  box-shadow: 0px 0px 8px -5px var(--box-shadow-color);
   padding-bottom: 25px;
-  background-color: $lElements;
+  background-color: var(--elements-color);
   cursor: pointer;
   overflow: hidden;
   img {
@@ -59,16 +59,16 @@ section {
     line-height: 2;
 
     h4 {
-      color: $lText;
+      color: var(--text-color);
       margin-bottom: 16px;
       font-size: 16px;
     }
     span:first-of-type {
-      color: $lText;
+      color: var(--text-color);
       font-weight: 600;
     }
     span:last-of-type {
-      color: $lInput;
+      color: var(--inputs-color);
       font-weight: 600;
     }
   }

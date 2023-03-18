@@ -111,14 +111,14 @@ export default {
   @extend %main-page-style;
   button {
     padding: 9px 28px;
-    color: $lInput;
-    background-color: $lElements;
+    color: var(--inputs-color);
+    background-color: var(--elements-color);
     border: none;
-    box-shadow: 0px 0px 6px -1px $lInput;
+    box-shadow: 0px 0px 6px -1px var(--box-shadow-color);
     border-radius: $main-border-radius;
     margin: 60px 0;
     svg {
-      color: $lText;
+      color: var(--text-color);
       margin-right: 10px;
     }
   }
@@ -135,9 +135,10 @@ export default {
     }
     > img {
       width: 450px;
-      filter: drop-shadow(0px 20px 0px #f8f8f8)
-        drop-shadow(0px -20px 0px #f8f8f8) drop-shadow(20px 0px 0px #f8f8f8)
-        drop-shadow(-20px 0px 0px #f8f8f8);
+      filter: drop-shadow(0px 20px 0px var(--filter-color))
+        drop-shadow(0px -20px 0px var(--filter-color))
+        drop-shadow(20px 0px 0px var(--filter-color))
+        drop-shadow(-20px 0px 0px var(--filter-color));
       @include underLarge {
         align-self: center;
       }
@@ -149,7 +150,7 @@ export default {
       padding: 20px 0;
       flex: 1;
       h2 {
-        color: $lText;
+        color: var(--text-color);
       }
       > div:first-of-type {
         display: flex;
@@ -163,10 +164,10 @@ export default {
           flex-direction: column;
           gap: 10px;
           > span {
-            color: $lText;
+            color: var(--text-color);
             font-weight: 600;
             > span {
-              color: $lInput;
+              color: var(--inputs-color);
               &:before {
                 content: " ";
               }
@@ -186,19 +187,19 @@ export default {
         }
         > span {
           white-space: nowrap;
-          color: $lText;
+          color: var(--text-color);
           font-weight: 600;
         }
         > div {
           display: flex;
           flex-wrap: wrap;
           gap: 8px 5px;
-          border-radius: $main-border-radius;
           span {
-            color: $lInput;
-            background-color: $lElements;
+            color: var(--inputs-color);
+            border-radius: $main-border-radius;
+            background-color: var(--elements-color);
+            box-shadow: 0px 0px 8px -4px var(--box-shadow-color);
             font-size: 14px;
-            box-shadow: 0px 0px 8px -4px $lInput;
             min-width: 70px;
             text-align: center;
             padding: 4px 6px;

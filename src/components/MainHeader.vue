@@ -2,9 +2,9 @@
   <nav>
     <div class="container">
       <h1>Where in the world?</h1>
-      <span @click="darkMode = !darkMode">
+      <span @click="changeMode">
         <font-awesome-icon icon="fa-regular fa-moon" />
-        <span class="app-mode" v-text="mode"></span>
+        <span class="app-mode" v-text="`${modeButton} Mode`"></span>
       </span>
     </div>
   </nav>
@@ -13,21 +13,14 @@
 <script>
 export default {
   name: "MainHeader",
-  data: function () {
-    return {
-      darkMode: false,
-    };
-  },
-  computed: {
-    mode: function () {
-      return this.darkMode ? "Light Mode" : "Dark Mode";
-    },
-  },
+  props: ["modeButton", "changeMode"],
 };
 </script>
 
 <style scoped lang="scss">
 nav {
+  background-color: var(--elements-color);
+  color: var(--text-color);
   width: 100%;
   padding: {
     top: $main-padding;

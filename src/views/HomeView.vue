@@ -91,8 +91,8 @@ export default {
       font-size: 14px;
 
       .div-input {
-        color: $lInput;
-        background-color: $lElements;
+        color: var(--inputs-color);
+        background-color: var(--elements-color);
         height: 45px;
         width: 390px;
         min-width: 200px;
@@ -100,7 +100,7 @@ export default {
           width: 350px;
         }
         border-radius: $main-border-radius;
-        box-shadow: 0px 0px 8px -5px $lInput;
+        box-shadow: 0px 0px 8px -5px var(--box-shadow-color);
         display: flex;
         align-items: center;
 
@@ -109,24 +109,28 @@ export default {
             left: 23px;
             right: 23px;
           }
+          color: var(--text-color);
         }
         input {
           border: none;
           background-color: inherit;
           width: 100%;
           padding-right: 10px;
+          &::placeholder {
+            color: var(--text-color);
+          }
         }
       }
       .div-select {
         overflow: hidden;
         position: relative;
-        box-shadow: 0px 0px 8px -5px $lInput;
+        box-shadow: 0px 0px 8px -5px var(--box-shadow-color);
         select {
           border-radius: $main-border-radius;
           border: none;
           height: 45px;
-          background-color: $lElements;
-          color: $lText;
+          background-color: var(--elements-color);
+          color: var(--text-color);
           appearance: none;
           width: 180px;
           cursor: pointer;
@@ -139,6 +143,7 @@ export default {
           right: 15px;
           transform: translateY(-50%);
           font-size: 12px;
+          color: var(--text-color);
         }
       }
     }

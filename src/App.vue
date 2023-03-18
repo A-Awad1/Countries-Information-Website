@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
-    <MainHeader />
-    <!-- <router-link to="/">Home</router-link> | -->
-    <!-- <router-link to="/details">details</router-link> -->
+  <main id="app">
+    <MainHeader :modeButton="modeButton" :changeMode="changeMode" />
     <router-view />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -12,6 +10,29 @@ import MainHeader from "@/components/MainHeader.vue";
 
 export default {
   name: "App",
+  data: function () {
+    return {
+      mode: "",
+      modeButton: "",
+    };
+  },
+  methods: {
+    changeMode: function () {
+      this.mode =
+        !localStorage.mode || localStorage.mode === "Light" ? "Dark" : "Light";
+    },
+  },
+  watch: {
+    mode: function (v) {
+      localStorage.mode = v;
+      document.documentElement.dataset.mode = v;
+      this.modeButton = v === "Light" ? "Dark" : "Light";
+    },
+  },
+  mounted() {
+    this.mode =
+      !localStorage.mode || localStorage.mode === "Light" ? "Light" : "Dark";
+  },
   components: {
     MainHeader,
   },
