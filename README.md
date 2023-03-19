@@ -22,10 +22,11 @@ This challenge is responsive in all devices.
 
 Technologies Used:
 
+- Vue
+- VueRouter
 - HTML
 - SASS
-- JavaScript
-- Vue
+- JavaScript (ECMAScript, BOM, AJAX, Api)
 - Font Awesome Library
 
 **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
