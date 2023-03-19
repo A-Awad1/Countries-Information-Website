@@ -2,7 +2,7 @@
 
 **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
 
-This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
+This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 This Website helps you to see the details of any country in the world. All data in the website fetched
 from [REST Countries API](https://restcountries.com).
@@ -23,10 +23,10 @@ This challenge is responsive in all devices.
 Technologies Used:
 
 - HTML
-- CSS
-- JavaScript
 - SASS
+- JavaScript
 - Vue
+- Font Awesome Library
 
 **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
 
