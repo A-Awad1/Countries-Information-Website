@@ -52,22 +52,11 @@ export default {
       countries: [],
     };
   },
-  methods: {
-    getAllData: function () {
-      fetch("https://restcountries.com/v2/all")
-        .then((resolved) => {
-          return resolved.json();
-        })
-        .then((resolved) => {
-          this.countries = resolved;
-        })
-        .catch((rejected) => {
-          console.log(Error(rejected));
-        });
-    },
-  },
   mounted() {
-    this.getAllData();
+    fetch("https://restcountries.com/v2/all")
+      .then((resolved) => resolved.json())
+      .then((resolved) => (this.countries = resolved))
+      .catch((rejected) => console.log(Error(rejected)));
   },
   components: {
     CountryBox,
@@ -116,6 +105,7 @@ export default {
           background-color: inherit;
           width: 100%;
           padding-right: 10px;
+          color: var(--text-color);
           &::placeholder {
             color: var(--text-color);
           }

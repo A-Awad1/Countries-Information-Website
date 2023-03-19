@@ -28,8 +28,7 @@ Technologies Used:
 - SASS
 - Vue
 
-<!--
-[See Website Live]()
+<!-- [See Website Live]() -->
 
 Output design Screenshots:
 
@@ -50,4 +49,3 @@ Medium Screens Details Page :
 
 Mobile Screens Details Page :
 ![Output](/Output-design-screenshots/6.details-mobile-screens.png)
--->

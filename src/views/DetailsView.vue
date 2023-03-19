@@ -6,14 +6,14 @@
           icon="fa-solid fa-arrow-left-long"
         />Back</router-link
       >
-      <div class="main-info">
+      <div class="main-content" v-if="countryInfo.name">
         <img
           :src="countryInfo.flags.png | flagHeight"
           :alt="`${countryInfo.name} flag`"
         />
         <div>
           <h2 v-text="countryInfo.name"></h2>
-          <div>
+          <div class="main-info">
             <div>
               <span
                 >Native Name:<span v-text="countryInfo.nativeName"></span
@@ -27,7 +27,9 @@
               <span
                 >Sub Region:<span v-text="countryInfo.subregion"></span
               ></span>
-              <span>Capital:<span v-text="countryInfo.capital"></span></span>
+              <span v-if="countryInfo.capital"
+                >Capital:<span v-text="countryInfo.capital"></span
+              ></span>
             </div>
             <div>
               <span
@@ -35,7 +37,7 @@
                   {{ countryInfo.topLevelDomain | joinArray }}</span
                 ></span
               >
-              <span
+              <span v-if="countryInfo.currencies"
                 >Currencies:<span>{{
                   countryCurrencies | joinArray
                 }}</span></span
@@ -47,7 +49,7 @@
               >
             </div>
           </div>
-          <div>
+          <div class="borders" v-if="countryInfo.borders">
             <span>Border Countries:</span>
             <div>
               <span
@@ -72,20 +74,6 @@ export default {
       countries: [],
     };
   },
-  methods: {
-    getCountryInfo: function () {
-      fetch("https://restcountries.com/v2/all")
-        .then((resolved) => {
-          return resolved.json();
-        })
-        .then((resolved) => {
-          this.countries = resolved;
-          this.countryInfo = resolved.filter(
-            (e) => e.name === this.countryName
-          )[0];
-        });
-    },
-  },
   computed: {
     countryCurrencies: function () {
       return this.countryInfo.currencies.map((e) => e.name);
@@ -94,14 +82,21 @@ export default {
       return this.countryInfo.languages.map((e) => e.name);
     },
     countryBorders: function () {
-      let borders = this.countryInfo.borders.map((e) =>
-        this.countries.filter((ele) => ele.alpha3Code === e)
-      );
-      return borders.map((e) => e[0].name);
+      return this.countryInfo.borders
+        .map((e) => this.countries.filter((ele) => ele.alpha3Code === e))
+        .map((e) => e[0].name);
     },
   },
   mounted() {
-    this.getCountryInfo();
+    fetch("https://restcountries.com/v2/all")
+      .then((resolved) => resolved.json())
+      .then((resolved) => {
+        this.countries = resolved;
+        this.countryInfo = resolved.filter(
+          (e) => e.name === this.countryName
+        )[0];
+      })
+      .catch((rejected) => console.log(Error(rejected)));
   },
 };
 </script>
@@ -122,7 +117,7 @@ export default {
       margin-right: 10px;
     }
   }
-  .main-info {
+  .main-content {
     display: flex;
     gap: 70px;
     @include underMedium {
@@ -152,7 +147,7 @@ export default {
       h2 {
         color: var(--text-color);
       }
-      > div:first-of-type {
+      > .main-info {
         display: flex;
         justify-content: space-between;
         @include underLarge {
@@ -175,7 +170,7 @@ export default {
           }
         }
       }
-      > div:last-of-type {
+      > .borders {
         display: flex;
         gap: 15px;
         margin-top: 40px;

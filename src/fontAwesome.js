@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // import specific icons
 import {
-  faUserSecret,
   faMagnifyingGlass,
   faAngleDown,
   faArrowLeftLong,
@@ -17,14 +16,7 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 // add icons to the library
-library.add(
-  faTwitter,
-  faMoon,
-  faUserSecret,
-  faMagnifyingGlass,
-  faAngleDown,
-  faArrowLeftLong
-);
+library.add(faTwitter, faMoon, faMagnifyingGlass, faAngleDown, faArrowLeftLong);
 
 // add font awesome icon component
 Vue.component("font-awesome-icon", FontAwesomeIcon);
