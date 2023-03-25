@@ -26,12 +26,7 @@
         <CountryBox
           v-for="country in countries"
           :key="country.name"
-          :flagSrc="country.flags.png | flagHeight"
-          :flagAlt="`${country.name} flag`"
-          :name="country.name"
-          :population="country.population | formatNumber"
-          :region="country.region"
-          :capital="country.capital"
+          :countryData="country"
           :filterName="filterName"
           :filterRegion="filterRegion"
         />

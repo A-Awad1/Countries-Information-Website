@@ -1,16 +1,23 @@
 <template>
   <router-link
     tag="section"
-    :to="{ name: 'details', params: { name: name } }"
+    :to="{ name: 'details', params: { name: countryData.name } }"
     v-if="filtration"
   >
-    <img :src="flagSrc" :alt="flagAlt" />
+    <img
+      :src="countryData.flags.png | flagHeight"
+      :alt="`${countryData.name} flag`"
+    />
     <div>
-      <h4 v-text="name"></h4>
-      <div><span>Population: </span><span v-text="population"></span></div>
-      <div><span>Region: </span><span v-text="region"></span></div>
+      <h4 v-text="countryData.name"></h4>
       <div>
-        <span>Capital: </span><span v-text="capital || 'No Capital'"></span>
+        <span>Population: </span
+        ><span>{{ countryData.population | formatNumber }}</span>
+      </div>
+      <div><span>Region: </span><span v-text="countryData.region"></span></div>
+      <div>
+        <span>Capital: </span
+        ><span v-text="countryData.capital || 'No Capital'"></span>
       </div>
     </div>
   </router-link>
@@ -19,20 +26,11 @@
 <script>
 export default {
   name: "CountryBox",
-  props: [
-    "flagSrc",
-    "flagAlt",
-    "name",
-    "population",
-    "region",
-    "capital",
-    "filterName",
-    "filterRegion",
-  ],
+  props: ["countryData", "filterName", "filterRegion"],
   computed: {
     filtration: function () {
-      return new RegExp(this.filterName, "ig").test(this.name) &&
-        (new RegExp(this.filterRegion, "ig").test(this.region) ||
+      return new RegExp(this.filterName, "ig").test(this.countryData.name) &&
+        (new RegExp(this.filterRegion, "ig").test(this.countryData.region) ||
           this.filterRegion === "")
         ? true
         : false;
