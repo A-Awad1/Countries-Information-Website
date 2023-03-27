@@ -26,12 +26,16 @@
 <script>
 export default {
   name: "CountryBox",
-  props: ["countryData", "filterName", "filterRegion"],
+  props: ["countryData", "filterData"],
   computed: {
     filtration: function () {
-      return new RegExp(this.filterName, "ig").test(this.countryData.name) &&
-        (new RegExp(this.filterRegion, "ig").test(this.countryData.region) ||
-          this.filterRegion === "")
+      return new RegExp(this.filterData.name, "ig").test(
+        this.countryData.name
+      ) &&
+        (new RegExp(this.filterData.region, "ig").test(
+          this.countryData.region
+        ) ||
+          this.filterData.region === "")
         ? true
         : false;
     },
