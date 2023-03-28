@@ -69,7 +69,7 @@
 export default {
   data: function () {
     return {
-      countryName: this.$route.params.name,
+      countryName: this.$route.params.name.toLowerCase(),
       countryInfo: "",
       countries: [],
     };
@@ -87,14 +87,19 @@ export default {
         .map((e) => e[0].name);
     },
   },
-  mounted() {
+  created() {
     fetch("https://restcountries.com/v2/all")
       .then((resolved) => resolved.json())
       .then((resolved) => {
         this.countries = resolved;
-        this.countryInfo = resolved.filter(
-          (e) => e.name === this.countryName
-        )[0];
+        let allCountriesName = this.countries.map((e) => e.name.toLowerCase());
+        if (allCountriesName.includes(this.countryName)) {
+          this.countryInfo = resolved.filter(
+            (e) => e.name.toLowerCase() === this.countryName
+          )[0];
+        } else {
+          this.$router.push("/");
+        }
       })
       .catch((rejected) => console.log(Error(rejected)));
   },

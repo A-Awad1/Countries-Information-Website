@@ -16,6 +16,10 @@ const routes = [
     name: "details",
     component: DetailsView,
   },
+  {
+    path: "*",
+    redirect: "/",
+  },
 ];
 
 const router = new VueRouter({
