@@ -98,7 +98,9 @@ export default {
             (e) => e.name.toLowerCase() === this.countryName
           )[0];
         } else {
-          this.$router.push("/");
+          this.$router.push({
+            path: "/",
+          });
         }
       })
       .catch((rejected) => console.log(Error(rejected)));
