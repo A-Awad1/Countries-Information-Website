@@ -123,17 +123,20 @@ export default {
     position: relative;
     box-shadow: 0px 0px 8px -5px var(--box-shadow-color);
     select {
+      appearance: none;
       border-radius: $main-border-radius;
       border: none;
       height: 45px;
       background-color: var(--elements-color);
       color: var(--text-color);
-      appearance: none;
       width: 180px;
       cursor: pointer;
       padding-left: 15px;
       user-select: none;
       text-transform: capitalize;
+    }
+    select option {
+      font-size: 16px;
     }
     svg {
       position: absolute;
@@ -142,6 +145,7 @@ export default {
       transform: translateY(-50%);
       font-size: 12px;
       color: var(--text-color);
+      cursor: pointer;
     }
   }
 }
