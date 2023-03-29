@@ -11,11 +11,9 @@
     <div class="div-select">
       <select name="region" v-model="filterData.region">
         <option value="">Filter By Region</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
+        <option v-for="reg in regions" :key="reg" :value="reg">
+          {{ reg }}
+        </option>
       </select>
       <font-awesome-icon icon="fa-solid fa-angle-down" />
     </div>
@@ -27,19 +25,51 @@ export default {
   name: "FiltrationTools",
   data: function () {
     return {
+      regions: ["africa", "america", "asia", "europe", "oceania"],
       filterData: {
         name: "",
         region: "",
       },
     };
   },
+  methods: {
+    passData: function () {
+      this.$emit("update:passFilterData", this.filterData);
+    },
+  },
   watch: {
     filterData: {
-      handler: function () {
-        this.$emit("update:passFilterData", this.filterData);
+      handler: function (v) {
+        this.passData();
+        if (this.filterData.region === "") {
+          this.$router.push({
+            path: "/",
+          });
+        } else {
+          this.$route.query.region = null;
+          this.$router.push({
+            query: {
+              region: v.region,
+            },
+          });
+        }
       },
       deep: true,
     },
+  },
+  mounted: function () {
+    this.passData();
+    if (this.$route.query.region) {
+      let qRegion = this.$route.query.region.toLowerCase();
+      if (this.regions.includes(qRegion)) {
+        this.filterData.region = qRegion;
+      } else {
+        this.filterData.region = "";
+        this.$router.push({
+          path: "/",
+        });
+      }
+    }
   },
 };
 </script>
@@ -103,6 +133,7 @@ export default {
       cursor: pointer;
       padding-left: 15px;
       user-select: none;
+      text-transform: capitalize;
     }
     svg {
       position: absolute;
