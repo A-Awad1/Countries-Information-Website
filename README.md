@@ -1,4 +1,4 @@
-# Countries Information Website (REST Countries API) (by Vue CLI)
+# Countries Information Website (REST Countries API) (by Vue CLI - Vuex)
 
 **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
 
@@ -24,6 +24,7 @@ Technologies Used:
 
 - Vue
 - VueRouter
+- Vuex
 - HTML
 - SCSS
 - JavaScript (ECMAScript, BOM, AJAX, Api)
