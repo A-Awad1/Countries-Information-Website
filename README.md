@@ -25,7 +25,7 @@ Technologies Used:
 - Vue
 - VueRouter
 - HTML
-- SASS
+- SCSS
 - JavaScript (ECMAScript, BOM, AJAX, Api)
 - Font Awesome Library
 
