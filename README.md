@@ -1,6 +1,9 @@
 # Countries Information Website (REST Countries API) (by Vue CLI - Vuex)
 
-**[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
+This Branch Progress :
+![0%](https://progress-bar.dev/0/?title=done)
+
+<!-- **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)** -->
 
 This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
@@ -30,9 +33,9 @@ Technologies Used:
 - JavaScript (ECMAScript, BOM, AJAX, Api)
 - Font Awesome Library
 
-**[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
+<!-- **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)** -->
 
-Output design Screenshots:
+<!-- Output design Screenshots:
 
 Large Screens Home Page :
 ![Output](/Output-design-screenshots/1.home-large-screens.png)
@@ -50,4 +53,4 @@ Medium Screens Details Page :
 ![Output](/Output-design-screenshots/5.details-medium-screens.png)
 
 Mobile Screens Details Page :
-![Output](/Output-design-screenshots/6.details-mobile-screens.png)
+![Output](/Output-design-screenshots/6.details-mobile-screens.png) -->
