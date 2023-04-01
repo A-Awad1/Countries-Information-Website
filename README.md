@@ -1,7 +1,7 @@
 # Countries Information Website (REST Countries API) (by Vue CLI - Vuex)
 
 This Branch Progress :
-![0%](https://progress-bar.dev/0/?title=done)
+![50%](https://progress-bar.dev/50/?title=done)
 
 <!-- **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)** -->
 
