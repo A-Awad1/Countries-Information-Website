@@ -5,11 +5,11 @@
       <input
         type="text"
         placeholder="Search for a country"
-        v-model="filterData.name"
+        v-model="filterName"
       />
     </div>
     <div class="div-select">
-      <select name="region" v-model="filterData.region">
+      <select name="region" v-model="filterRegion">
         <option value="">Filter By Region</option>
         <option v-for="reg in regions" :key="reg" :value="reg">
           {{ reg }}
@@ -21,50 +21,58 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "FiltrationTools",
   data: function () {
     return {
       regions: ["africa", "america", "asia", "europe", "oceania"],
-      filterData: {
-        name: "",
-        region: "",
-      },
     };
   },
-  methods: {
-    passData: function () {
-      this.$emit("update:passFilterData", this.filterData);
+  computed: {
+    filterName: {
+      get() {
+        return this.$store.state.filterName;
+      },
+      set(newName) {
+        this.updateFilterName(newName);
+      },
+    },
+    filterRegion: {
+      get() {
+        return this.$store.state.filterRegion;
+      },
+      set(newRegion) {
+        this.updateFilterRegion(newRegion);
+      },
     },
   },
+  methods: {
+    ...mapMutations(["updateFilterName", "updateFilterRegion"]),
+  },
   watch: {
-    filterData: {
-      handler: function (v) {
-        this.passData();
-        if (this.filterData.region === "") {
-          this.$router.push({
-            path: "/",
-          });
-        } else {
-          this.$route.query.region = null;
-          this.$router.push({
-            query: {
-              region: v.region,
-            },
-          });
-        }
-      },
-      deep: true,
+    filterRegion: function (v) {
+      if (v === "") {
+        this.$router.push({
+          path: "/",
+        });
+      } else {
+        this.$route.query.region = null;
+        this.$router.push({
+          query: {
+            region: v,
+          },
+        });
+      }
     },
   },
   mounted: function () {
-    this.passData();
     if (this.$route.query.region) {
       let qRegion = this.$route.query.region.toLowerCase();
       if (this.regions.includes(qRegion)) {
-        this.filterData.region = qRegion;
+        this.updateFilterRegion(qRegion);
       } else {
-        this.filterData.region = "";
+        this.updateFilterRegion("");
         this.$router.push({
           path: "/",
         });

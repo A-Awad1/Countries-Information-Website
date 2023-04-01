@@ -1,13 +1,14 @@
 <template>
   <div class="home">
     <div class="container">
-      <FiltrationTools :passFilterData.sync="filterData" />
+      <FiltrationTools />
       <section class="all-countries">
         <CountryBox
           v-for="country in countries"
           :key="country.name"
           :countryData="country"
-          :filterData="filterData"
+          :filterName="filterName"
+          :filterRegion="filterRegion"
         />
       </section>
     </div>
@@ -17,17 +18,17 @@
 <script>
 import FiltrationTools from "@/components/FiltrationTools.vue";
 import CountryBox from "@/components/CountryBox.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "HomeView",
   data: function () {
     return {
-      filterData: {
-        name: "",
-        region: "",
-      },
       countries: [],
     };
+  },
+  computed: {
+    ...mapState(["filterName", "filterRegion"]),
   },
   mounted() {
     fetch("https://restcountries.com/v2/all")

@@ -11,9 +11,27 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapMutations } = createNamespacedHelpers("modeType");
+
 export default {
   name: "MainHeader",
-  props: ["modeButton", "changeMode"],
+  computed: {
+    ...mapState(["mode", "modeButton"]),
+  },
+  methods: {
+    ...mapMutations(["updateMode", "updateModeButton", "changeMode"]),
+  },
+  watch: {
+    mode: function (v) {
+      localStorage.mode = v;
+      document.documentElement.dataset.mode = v;
+      this.updateModeButton();
+    },
+  },
+  mounted() {
+    this.updateMode();
+  },
 };
 </script>
 
