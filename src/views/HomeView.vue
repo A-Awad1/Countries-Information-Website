@@ -7,8 +7,6 @@
           v-for="country in countries"
           :key="country.name"
           :countryData="country"
-          :filterName="filterName"
-          :filterRegion="filterRegion"
         />
       </section>
     </div>
@@ -18,23 +16,18 @@
 <script>
 import FiltrationTools from "@/components/FiltrationTools.vue";
 import CountryBox from "@/components/CountryBox.vue";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "HomeView",
-  data: function () {
-    return {
-      countries: [],
-    };
-  },
   computed: {
-    ...mapState(["filterName", "filterRegion"]),
+    ...mapState(["countries"]),
+  },
+  methods: {
+    ...mapActions(["fetchCountries"]),
   },
   mounted() {
-    fetch("https://restcountries.com/v2/all")
-      .then((resolved) => resolved.json())
-      .then((resolved) => (this.countries = resolved))
-      .catch((rejected) => console.log(Error(rejected)));
+    this.fetchCountries();
   },
   components: {
     CountryBox,

@@ -66,15 +66,18 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
   data: function () {
     return {
       countryName: this.$route.params.name.toLowerCase(),
       countryInfo: "",
-      countries: [],
     };
   },
   computed: {
+    ...mapState(["countries"]),
+
     countryCurrencies: function () {
       return this.countryInfo.currencies.map((e) => e.name);
     },
@@ -87,14 +90,15 @@ export default {
         .map((e) => e[0].name);
     },
   },
-  created() {
-    fetch("https://restcountries.com/v2/all")
-      .then((resolved) => resolved.json())
-      .then((resolved) => {
-        this.countries = resolved;
+  methods: {
+    ...mapActions(["fetchCountries"]),
+  },
+  mounted() {
+    this.fetchCountries()
+      .then(() => {
         let allCountriesName = this.countries.map((e) => e.name.toLowerCase());
         if (allCountriesName.includes(this.countryName)) {
-          this.countryInfo = resolved.filter(
+          this.countryInfo = this.countries.filter(
             (e) => e.name.toLowerCase() === this.countryName
           )[0];
         } else {

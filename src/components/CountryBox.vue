@@ -24,10 +24,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "CountryBox",
-  props: ["countryData", "filterName", "filterRegion"],
+  props: ["countryData"],
   computed: {
+    ...mapState(["filterName", "filterRegion"]),
     filtration: function () {
       return new RegExp(this.filterName, "ig").test(this.countryData.name) &&
         (new RegExp(this.filterRegion, "ig").test(this.countryData.region) ||
