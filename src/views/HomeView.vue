@@ -1,55 +1,18 @@
 <template>
   <div class="home">
-    <div class="container">
-      <FiltrationTools />
-      <section class="all-countries">
-        <CountryBox
-          v-for="country in countries"
-          :key="country.name"
-          :countryData="country"
-        />
-      </section>
-    </div>
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import FiltrationTools from "@/components/FiltrationTools.vue";
-import CountryBox from "@/components/CountryBox.vue";
-import { mapState, mapActions } from "vuex";
+// @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "HomeView",
-  computed: {
-    ...mapState(["countries"]),
-  },
-  methods: {
-    ...mapActions(["fetchCountries"]),
-  },
-  mounted() {
-    this.fetchCountries();
-  },
   components: {
-    CountryBox,
-    FiltrationTools,
+    HelloWorld,
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.home {
-  @extend %main-page-style;
-  .all-countries {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 70px;
-    @include underTablet {
-      justify-content: center;
-      padding: 0 35px;
-      grid-template-columns: minmax(200px, 300px);
-      min-width: 200px;
-    }
-  }
-}
-</style>
