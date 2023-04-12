@@ -1,6 +1,6 @@
 # Countries Information Website (REST Countries API) (Vue3 - full use composition api)
 
-**Project Progress : ![0%](https://progress-bar.dev/0/?title=done)**
+**Project Progress : ![50%](https://progress-bar.dev/50/?title=done)**
 
 <!-- **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)** -->
 
