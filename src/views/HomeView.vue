@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <FiltrationTools @pass-filter-data="filterData" />
+      <FiltrationTools @pass-filter-data="receiveFilterData" />
       <section class="all-countries">
         <CountryBox
           v-for="country in countries"
@@ -17,23 +17,29 @@
 <script>
 import FiltrationTools from "@/components/FiltrationTools.vue";
 import CountryBox from "@/components/CountryBox.vue";
-
+import { ref, onMounted } from "vue";
 export default {
   name: "HomeView",
-  data: function () {
+  setup: function () {
+    const countries = ref([]);
+    const filterData = ref({
+      name: "",
+      region: "",
+    });
+    function receiveFilterData(v) {
+      filterData.value = v;
+    }
+    onMounted(function () {
+      fetch("https://restcountries.com/v2/all")
+        .then((resolved) => resolved.json())
+        .then((resolved) => (countries.value = resolved))
+        .catch((rejected) => console.log(Error(rejected)));
+    });
     return {
-      filterData: {
-        name: "",
-        region: "",
-      },
-      countries: [],
+      countries,
+      filterData,
+      receiveFilterData,
     };
-  },
-  mounted() {
-    fetch("https://restcountries.com/v2/all")
-      .then((resolved) => resolved.json())
-      .then((resolved) => (this.countries = resolved))
-      .catch((rejected) => console.log(Error(rejected)));
   },
   components: {
     CountryBox,

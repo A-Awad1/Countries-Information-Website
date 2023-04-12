@@ -21,56 +21,64 @@
 </template>
 
 <script>
+import { ref, watch, onMounted, reactive } from "vue";
+import { useRouter, useRoute } from "vue-router";
 export default {
   name: "FiltrationTools",
-  data: function () {
-    return {
-      regions: ["africa", "america", "asia", "europe", "oceania"],
-      filterData: {
-        name: "",
-        region: "",
-      },
-    };
-  },
-  methods: {
-    passData: function () {
-      this.$emit("passFilterData", this.filterData);
-    },
-  },
-  watch: {
-    filterData: {
-      handler: function (v) {
-        this.passData();
-        if (this.filterData.region === "") {
-          this.$router.push({
+  setup: function (props, context) {
+    const router = useRouter();
+    const route = useRoute();
+
+    const regions = ref(["africa", "america", "asia", "europe", "oceania"]);
+    const filterData = reactive({
+      name: "",
+      region: "",
+    });
+    function passData() {
+      context.emit("passFilterData", filterData);
+    }
+    watch(
+      filterData,
+      function (v) {
+        passData();
+        if (filterData.region === "") {
+          router.push({
             path: "/",
           });
         } else {
-          this.$route.query.region = null;
-          this.$router.push({
+          route.query.region = null;
+          router.push({
             query: {
               region: v.region,
             },
           });
         }
       },
-      deep: true,
-    },
-  },
-  mounted: function () {
-    this.passData();
-    if (this.$route.query.region) {
-      let qRegion = this.$route.query.region.toLowerCase();
-      if (this.regions.includes(qRegion)) {
-        this.filterData.region = qRegion;
-      } else {
-        this.filterData.region = "";
-        this.$router.push({
-          path: "/",
-        });
+      {
+        deep: true,
       }
-    }
+    );
+    onMounted(function () {
+      passData();
+      if (route.query.region) {
+        let qRegion = route.query.region.toLowerCase();
+        if (regions.value.includes(qRegion)) {
+          filterData.region = qRegion;
+        } else {
+          filterData.region = "";
+          router.push({
+            path: "/",
+          });
+        }
+      }
+    });
+    return {
+      regions,
+      filterData,
+      passData,
+    };
   },
+  emits: ["passFilterData"],
 };
 </script>
 

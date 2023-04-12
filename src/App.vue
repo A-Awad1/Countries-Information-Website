@@ -7,31 +7,28 @@
 
 <script>
 import MainHeader from "@/components/MainHeader.vue";
+import { ref, watch, onMounted } from "vue";
 
 export default {
   name: "App",
-  data: function () {
-    return {
-      mode: "",
-      modeButton: "",
-    };
-  },
-  methods: {
-    changeMode: function () {
-      this.mode =
+  setup: function () {
+    const mode = ref("");
+    const modeButton = ref("");
+    function changeMode() {
+      mode.value =
         !localStorage.mode || localStorage.mode === "Light" ? "Dark" : "Light";
-    },
-  },
-  watch: {
-    mode: function (v) {
+    }
+    watch(mode, function (v) {
       localStorage.mode = v;
       document.documentElement.dataset.mode = v;
-      this.modeButton = v === "Light" ? "Dark" : "Light";
-    },
-  },
-  mounted() {
-    this.mode =
-      !localStorage.mode || localStorage.mode === "Light" ? "Light" : "Dark";
+      modeButton.value = v === "Light" ? "Dark" : "Light";
+    });
+    onMounted(function () {
+      mode.value =
+        !localStorage.mode || localStorage.mode === "Light" ? "Light" : "Dark";
+    });
+
+    return { mode, modeButton, changeMode };
   },
   components: {
     MainHeader,
