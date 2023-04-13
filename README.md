@@ -1,6 +1,6 @@
 # Countries Information Website (REST Countries API) (Vanilla Javascript) (without any framework)
 
-**[See Website Live](https://a-awad-countries-information-site-js.netlify.app/)**
+**[See Website Live](https://countries-information-js-a-awad.netlify.app/)**
 
 This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
@@ -32,7 +32,7 @@ Additions under development:
 - Test the website by Jest
 - Use gulp plugins to help in maintenance
 
-[See Website Live](https://a-awad-countries-information-site-js.netlify.app/)
+**[See Website Live](https://countries-information-js-a-awad.netlify.app/)**
 
 Output design Screenshots:
 
