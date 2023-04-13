@@ -25,6 +25,7 @@ import { ref, watch, onMounted, reactive } from "vue";
 import { useRouter, useRoute } from "vue-router";
 export default {
   name: "FiltrationTools",
+  emits: ["passFilterData"],
   setup: function (props, context) {
     const router = useRouter();
     const route = useRoute();
@@ -78,7 +79,6 @@ export default {
       passData,
     };
   },
-  emits: ["passFilterData"],
 };
 </script>
 

@@ -32,7 +32,10 @@ export default {
     onMounted(function () {
       fetch("https://restcountries.com/v2/all")
         .then((resolved) => resolved.json())
-        .then((resolved) => (countries.value = resolved))
+        .then((resolved) => {
+          countries.value = resolved;
+          return resolved;
+        })
         .catch((rejected) => console.log(Error(rejected)));
     });
     return {

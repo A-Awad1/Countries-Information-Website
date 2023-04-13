@@ -23,27 +23,29 @@
 </template>
 
 <script>
+import { computed } from "vue";
 export default {
   name: "CountryBox",
   props: ["countryData", "filterData"],
-  computed: {
-    filtration: function () {
-      return new RegExp(this.filterData.name, "ig").test(
-        this.countryData.name
+  setup: function (props) {
+    const filtration = computed(function () {
+      return new RegExp(props.filterData.name, "ig").test(
+        props.countryData.name
       ) &&
-        (new RegExp(this.filterData.region, "ig").test(
-          this.countryData.region
+        (new RegExp(props.filterData.region, "ig").test(
+          props.countryData.region
         ) ||
-          this.filterData.region === "")
+          props.filterData.region === "")
         ? true
         : false;
-    },
-    countryFlagSrc: function () {
-      return this.countryData.flags.png.replace("w320", "h120");
-    },
-    countryPopulation: function () {
-      return this.countryData.population.toLocaleString();
-    },
+    });
+    const countryFlagSrc = computed(function () {
+      return props.countryData.flags.png.replace("w320", "h120");
+    });
+    const countryPopulation = computed(function () {
+      return props.countryData.population.toLocaleString();
+    });
+    return { filtration, countryFlagSrc, countryPopulation };
   },
 };
 </script>
