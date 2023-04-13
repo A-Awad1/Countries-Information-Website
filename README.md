@@ -1,4 +1,4 @@
-# Countries Information Website (REST Countries API) (by Vue CLI) (Vue 2)
+# Countries Information Website (REST Countries API) (by Vue CLI) (Vue)
 
 **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
 
@@ -22,7 +22,7 @@ This challenge is responsive in all devices.
 
 Technologies Used:
 
-- Vue 2
+- Vue
 - VueRouter
 - HTML
 - SCSS
