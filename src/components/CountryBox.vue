@@ -8,7 +8,7 @@
       <div>
         <h4 v-text="countryData.name"></h4>
         <div>
-          <span>Population: </span><span>{{ countryPopulation }}</span>
+          <span>Population: </span><span v-text="countryPopulation"></span>
         </div>
         <div>
           <span>Region: </span><span v-text="countryData.region"></span>
@@ -23,29 +23,26 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { mapState } from "vuex";
+
 export default {
   name: "CountryBox",
-  props: ["countryData", "filterData"],
-  setup: function (props) {
-    const filtration = computed(function () {
-      return new RegExp(props.filterData.name, "ig").test(
-        props.countryData.name
-      ) &&
-        (new RegExp(props.filterData.region, "ig").test(
-          props.countryData.region
-        ) ||
-          props.filterData.region === "")
+  props: ["countryData"],
+  computed: {
+    ...mapState(["filterName", "filterRegion"]),
+    filtration: function () {
+      return new RegExp(this.filterName, "ig").test(this.countryData.name) &&
+        (new RegExp(this.filterRegion, "ig").test(this.countryData.region) ||
+          this.filterRegion === "")
         ? true
         : false;
-    });
-    const countryFlagSrc = computed(function () {
-      return props.countryData.flags.png.replace("w320", "h120");
-    });
-    const countryPopulation = computed(function () {
-      return props.countryData.population.toLocaleString();
-    });
-    return { filtration, countryFlagSrc, countryPopulation };
+    },
+    countryFlagSrc: function () {
+      return this.countryData.flags.png.replace("w320", "h120");
+    },
+    countryPopulation: function () {
+      return this.countryData.population.toLocaleString();
+    },
   },
 };
 </script>

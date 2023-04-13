@@ -1,4 +1,4 @@
-# Countries Information Website (REST Countries API) (Vue3 - full use composition api)
+# Countries Information Website (REST Countries API) (Vue3 - Vuex)
 
 <!-- **[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)** -->
 
@@ -22,7 +22,8 @@ This challenge is responsive in all devices.
 
 Technologies Used:
 
-- Vue3 (full use composition api)
+- Vue3
+- Vuex
 - VueRouter
 - HTML
 - SCSS

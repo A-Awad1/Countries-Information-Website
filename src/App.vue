@@ -1,35 +1,15 @@
 <template>
   <main id="app">
-    <MainHeader :modeButton="modeButton" :changeMode="changeMode" />
+    <MainHeader />
     <router-view />
   </main>
 </template>
 
 <script>
 import MainHeader from "@/components/MainHeader.vue";
-import { ref, watch, onMounted } from "vue";
 
 export default {
   name: "App",
-  setup: function () {
-    const mode = ref("");
-    const modeButton = ref("");
-    function changeMode() {
-      mode.value =
-        !localStorage.mode || localStorage.mode === "Light" ? "Dark" : "Light";
-    }
-    watch(mode, function (v) {
-      localStorage.mode = v;
-      document.documentElement.dataset.mode = v;
-      modeButton.value = v === "Light" ? "Dark" : "Light";
-    });
-    onMounted(function () {
-      mode.value =
-        !localStorage.mode || localStorage.mode === "Light" ? "Light" : "Dark";
-    });
-
-    return { mode, modeButton, changeMode };
-  },
   components: {
     MainHeader,
   },

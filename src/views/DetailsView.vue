@@ -26,12 +26,12 @@
             </div>
             <div>
               <span
-                >Top Level Domain:<span v-text="countryTopLevelDomain"></span
+                >Top Level Domain: <span v-text="countryTopLevelDomain"></span
               ></span>
               <span v-if="countryInfo.currencies"
                 >Currencies:<span v-text="countryCurrencies"></span
               ></span>
-              <span>Languages:<span v-text="countryLanguages"> </span></span>
+              <span>Languages:<span v-text="countryLanguages"></span></span>
             </div>
           </div>
           <div class="borders" v-if="countryInfo.borders">
@@ -51,72 +51,58 @@
 </template>
 
 <script>
-import { reactive, toRefs, computed, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { mapState, mapActions } from "vuex";
+
 export default {
-  setup: function () {
-    const router = useRouter();
-    const route = useRoute();
-    const mainData = reactive({
-      countryName: route.params.name.toLowerCase(),
-      countryInfo: "",
-      countries: [],
-    });
-
-    const countryFlagSrc = computed(function () {
-      return mainData.countryInfo.flags.png.replace("w320", "h120");
-    });
-    const countryPopulation = computed(function () {
-      return mainData.countryInfo.population.toLocaleString();
-    });
-    const countryTopLevelDomain = computed(function () {
-      return mainData.countryInfo.topLevelDomain.join(", ");
-    });
-    const countryCurrencies = computed(function () {
-      return mainData.countryInfo.currencies.map((e) => e.name).join(", ");
-    });
-    const countryLanguages = computed(function () {
-      return mainData.countryInfo.languages.map((e) => e.name).join(", ");
-    });
-    const countryBorders = computed(function () {
-      return mainData.countryInfo.borders
-        .map((e) => mainData.countries.filter((ele) => ele.alpha3Code === e))
-        .map((e) => e[0].name);
-    });
-
-    onMounted(function () {
-      fetch("https://restcountries.com/v2/all")
-        .then((resolved) => resolved.json())
-        .then((resolved) => {
-          mainData.countries = resolved;
-          return resolved;
-        })
-        .then((resolved) => {
-          let allCountriesName = mainData.countries.map((e) =>
-            e.name.toLowerCase()
-          );
-          if (allCountriesName.includes(mainData.countryName)) {
-            mainData.countryInfo = resolved.filter(
-              (e) => e.name.toLowerCase() === mainData.countryName
-            )[0];
-          } else {
-            router.push({
-              path: "/",
-            });
-          }
-        })
-        .catch((rejected) => console.log(Error(rejected)));
-    });
-
+  data: function () {
     return {
-      ...toRefs(mainData),
-      countryFlagSrc,
-      countryPopulation,
-      countryTopLevelDomain,
-      countryCurrencies,
-      countryLanguages,
-      countryBorders,
+      countryName: this.$route.params.name.toLowerCase(),
+      countryInfo: "",
     };
+  },
+  computed: {
+    ...mapState(["countries"]),
+
+    countryFlagSrc: function () {
+      return this.countryInfo.flags.png.replace("w320", "h120");
+    },
+    countryPopulation: function () {
+      return this.countryInfo.population.toLocaleString();
+    },
+    countryTopLevelDomain: function () {
+      return this.countryInfo.topLevelDomain.join(", ");
+    },
+
+    countryCurrencies: function () {
+      return this.countryInfo.currencies.map((e) => e.name).join(", ");
+    },
+    countryLanguages: function () {
+      return this.countryInfo.languages.map((e) => e.name).join(", ");
+    },
+    countryBorders: function () {
+      return this.countryInfo.borders
+        .map((e) => this.countries.filter((ele) => ele.alpha3Code === e))
+        .map((e) => e[0].name);
+    },
+  },
+  methods: {
+    ...mapActions(["fetchCountries"]),
+  },
+  mounted() {
+    this.fetchCountries()
+      .then(() => {
+        let allCountriesName = this.countries.map((e) => e.name.toLowerCase());
+        if (allCountriesName.includes(this.countryName)) {
+          this.countryInfo = this.countries.filter(
+            (e) => e.name.toLowerCase() === this.countryName
+          )[0];
+        } else {
+          this.$router.push({
+            path: "/",
+          });
+        }
+      })
+      .catch((rejected) => console.log(Error(rejected)));
   },
 };
 </script>

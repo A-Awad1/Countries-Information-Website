@@ -5,11 +5,11 @@
       <input
         type="text"
         placeholder="Search for a country"
-        v-model="filterData.name"
+        v-model="filterName"
       />
     </div>
     <div class="div-select">
-      <select name="region" v-model="filterData.region">
+      <select name="region" v-model="filterRegion">
         <option value="">Filter By Region</option>
         <option v-for="reg in regions" :key="reg" :value="reg">
           {{ reg }}
@@ -21,63 +21,63 @@
 </template>
 
 <script>
-import { ref, watch, onMounted, reactive } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { mapMutations } from "vuex";
 export default {
   name: "FiltrationTools",
-  emits: ["passFilterData"],
-  setup: function (props, context) {
-    const router = useRouter();
-    const route = useRoute();
-
-    const regions = ref(["africa", "america", "asia", "europe", "oceania"]);
-    const filterData = reactive({
-      name: "",
-      region: "",
-    });
-    function passData() {
-      context.emit("passFilterData", filterData);
-    }
-    watch(
-      filterData,
-      function (v) {
-        passData();
-        if (filterData.region === "") {
-          router.push({
-            path: "/",
-          });
-        } else {
-          route.query.region = null;
-          router.push({
-            query: {
-              region: v.region,
-            },
-          });
-        }
-      },
-      {
-        deep: true,
-      }
-    );
-    onMounted(function () {
-      passData();
-      if (route.query.region) {
-        let qRegion = route.query.region.toLowerCase();
-        if (regions.value.includes(qRegion)) {
-          filterData.region = qRegion;
-        } else {
-          filterData.region = "";
-          router.push({
-            path: "/",
-          });
-        }
-      }
-    });
+  data: function () {
     return {
-      regions,
-      filterData,
-      passData,
+      regions: ["africa", "america", "asia", "europe", "oceania"],
     };
+  },
+  computed: {
+    filterName: {
+      get() {
+        return this.$store.state.filterName;
+      },
+      set(newName) {
+        this.updateFilterName(newName);
+      },
+    },
+    filterRegion: {
+      get() {
+        return this.$store.state.filterRegion;
+      },
+      set(newRegion) {
+        this.updateFilterRegion(newRegion);
+      },
+    },
+  },
+  methods: {
+    ...mapMutations(["updateFilterName", "updateFilterRegion"]),
+  },
+  watch: {
+    filterRegion: function (v) {
+      if (v === "") {
+        this.$router.push({
+          path: "/",
+        });
+      } else {
+        this.$route.query.region = null;
+        this.$router.push({
+          query: {
+            region: v,
+          },
+        });
+      }
+    },
+  },
+  mounted: function () {
+    if (this.$route.query.region) {
+      let qRegion = this.$route.query.region.toLowerCase();
+      if (this.regions.includes(qRegion)) {
+        this.updateFilterRegion(qRegion);
+      } else {
+        this.updateFilterRegion("");
+        this.$router.push({
+          path: "/",
+        });
+      }
+    }
   },
 };
 </script>
