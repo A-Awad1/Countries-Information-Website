@@ -1,8 +1,8 @@
-# Countries Information Website (REST Countries API) (by Vue CLI)
+# Countries Information Website (REST Countries API) (without any framework)
 
-**[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
+**[See Website Live](https://a-awad-countries-information-site-js.netlify.app/)**
 
-This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
 This Website helps you to see the details of any country in the world. All data in the website fetched
 from [REST Countries API](https://restcountries.com).
@@ -16,20 +16,23 @@ Features:
 - Toggle the color scheme between light and dark mode and the value stored in local storage.
 - View the optimal layout depending on the device's screen size.
 
-This challenge is built by Vue CLI.
+This challenge is developed without using any framework
 
 This challenge is responsive in all devices.
 
 Technologies Used:
 
-- Vue
-- VueRouter
 - HTML
-- SCSS
-- JavaScript (ECMAScript, BOM, AJAX, Api)
+- CSS
+- JavaScript (ECMAScript , DOM , BOM , AJAX , Api)
 - Font Awesome Library
 
-**[See Website Live](https://a-awad-countries-information-site-vue.netlify.app/)**
+Additions under development:
+
+- Test the website by Jest
+- Use gulp plugins to help in maintenance
+
+[See Website Live](https://a-awad-countries-information-site-js.netlify.app/)
 
 Output design Screenshots:
 
