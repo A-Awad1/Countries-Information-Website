@@ -16,7 +16,7 @@ Features:
 - Toggle the color scheme between light and dark mode and the value stored in local storage.
 - View the optimal layout depending on the device's screen size.
 
-This challenge is developed without using any framework
+This challenge is developed without using any framework.
 
 This challenge is responsive in all devices.
 
