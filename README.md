@@ -43,8 +43,5 @@ Mobile Screens Home Page :
 Large Screens Details Page :
 ![Output](/Output-design-screenshots/4.details-large-screens.png)
 
-Medium Screens Details Page :
-![Output](/Output-design-screenshots/5.details-medium-screens.png)
-
 Mobile Screens Details Page :
-![Output](/Output-design-screenshots/6.details-mobile-screens.png)
+![Output](/Output-design-screenshots/5.details-mobile-screens.png)
