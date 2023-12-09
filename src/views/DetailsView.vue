@@ -53,6 +53,7 @@
 <script>
 import { reactive, toRefs, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import fetchCountries from "@/composable/useFetchCountries";
 export default {
   setup: function () {
     const router = useRouter();
@@ -83,10 +84,8 @@ export default {
         .map((e) => mainData.countries.filter((ele) => ele.alpha3Code === e))
         .map((e) => e[0].name);
     });
-
     onMounted(function () {
-      fetch("https://restcountries.com/v2/all")
-        .then((resolved) => resolved.json())
+      fetchCountries()
         .then((resolved) => {
           mainData.countries = resolved;
           return resolved;

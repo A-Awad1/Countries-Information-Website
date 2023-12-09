@@ -18,6 +18,7 @@
 import FiltrationTools from "@/components/FiltrationTools.vue";
 import CountryBox from "@/components/CountryBox.vue";
 import { ref, onMounted } from "vue";
+import fetchCountries from "@/composable/useFetchCountries";
 export default {
   name: "HomeView",
   setup: function () {
@@ -30,8 +31,7 @@ export default {
       filterData.value = v;
     }
     onMounted(function () {
-      fetch("https://restcountries.com/v2/all")
-        .then((resolved) => resolved.json())
+      fetchCountries()
         .then((resolved) => {
           countries.value = resolved;
           return resolved;
