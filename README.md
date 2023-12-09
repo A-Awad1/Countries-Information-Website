@@ -27,11 +27,6 @@ Technologies Used:
 - JavaScript (ECMAScript , DOM , BOM , AJAX , Api)
 - Font Awesome Library
 
-Additions under development:
-
-- Test the website by Jest
-- Use gulp plugins to help in maintenance
-
 **[See Website Live](https://countries-information-js-a-awad.netlify.app/)**
 
 Output design Screenshots:
