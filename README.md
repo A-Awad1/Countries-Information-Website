@@ -4,8 +4,7 @@
 
 This project is advanced challenge from [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-This Website helps you to see the details of any country in the world. All data in the website fetched
-from [REST Countries API](https://restcountries.com).
+This Website helps you to see the details of any country in the world. All data in the website depend one the data of [REST Countries API](https://restcountries.com).
 
 Features:
 

@@ -92,9 +92,12 @@ backBtn.onclick = function () {
   mainSection.style.display = "block";
 };
 
-fetch("https://restcountries.com/v2/all")
+fetch("/json/db.json")
   .then(function (resolve) {
     return resolve.json();
+  })
+  .then(function (resolve) {
+    return resolve.data;
   })
   // start modifying some data
   .then(function (resolve) {
