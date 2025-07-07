@@ -30,8 +30,9 @@ export default {
     };
   },
   mounted() {
-    fetch("https://restcountries.com/v2/all")
+    fetch("/json/db.json")
       .then((resolved) => resolved.json())
+      .then((resolve) => resolve.data)
       // start modifying some data
       .then((resolve) => {
         let x = resolve.filter((e) => e.alpha3Code === "PSE")[0];
