@@ -1,7 +1,6 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import modeType from "./modeType";
+import { createStore } from "vuex";
 
+<<<<<<< HEAD
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -53,4 +52,12 @@ export default new Vuex.Store({
   modules: {
     modeType,
   },
+=======
+export default createStore({
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
+  modules: {},
+>>>>>>> 621ba564251275d1d38385a3f0ce3ab69ae7813a
 });

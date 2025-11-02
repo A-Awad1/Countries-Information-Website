@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 // import the FontAwesome core
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -18,5 +16,4 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 // add icons to the library
 library.add(faTwitter, faMoon, faMagnifyingGlass, faAngleDown, faArrowLeftLong);
 
-// add font awesome icon component
-Vue.component("font-awesome-icon", FontAwesomeIcon);
+export default FontAwesomeIcon;

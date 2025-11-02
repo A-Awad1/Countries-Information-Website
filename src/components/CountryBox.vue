@@ -1,43 +1,51 @@
 <template>
   <router-link
-    tag="section"
     :to="{ name: 'details', params: { name: countryData.name } }"
     v-if="filtration"
   >
-    <img
-      :src="countryData.flags.png | flagHeight"
-      :alt="`${countryData.name} flag`"
-    />
-    <div>
-      <h4 v-text="countryData.name"></h4>
+    <section>
+      <img :src="countryFlagSrc" :alt="`${countryData.name} flag`" />
       <div>
-        <span>Population: </span
-        ><span>{{ countryData.population | formatNumber }}</span>
+        <h4 v-text="countryData.name"></h4>
+        <div>
+          <span>Population: </span><span>{{ countryPopulation }}</span>
+        </div>
+        <div>
+          <span>Region: </span><span v-text="countryData.region"></span>
+        </div>
+        <div>
+          <span>Capital: </span
+          ><span v-text="countryData.capital || 'No Capital'"></span>
+        </div>
       </div>
-      <div><span>Region: </span><span v-text="countryData.region"></span></div>
-      <div>
-        <span>Capital: </span
-        ><span v-text="countryData.capital || 'No Capital'"></span>
-      </div>
-    </div>
+    </section>
   </router-link>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
+import { computed } from "vue";
 export default {
   name: "CountryBox",
-  props: ["countryData"],
-  computed: {
-    ...mapState(["filterName", "filterRegion"]),
-    filtration: function () {
-      return new RegExp(this.filterName, "ig").test(this.countryData.name) &&
-        (new RegExp(this.filterRegion, "ig").test(this.countryData.region) ||
-          this.filterRegion === "")
+  props: ["countryData", "filterData"],
+  setup: function (props) {
+    const filtration = computed(function () {
+      return new RegExp(props.filterData.name, "ig").test(
+        props.countryData.name
+      ) &&
+        (new RegExp(props.filterData.region, "ig").test(
+          props.countryData.region
+        ) ||
+          props.filterData.region === "")
         ? true
         : false;
-    },
+    });
+    const countryFlagSrc = computed(function () {
+      return props.countryData.flags.png.replace("w320", "h120");
+    });
+    const countryPopulation = computed(function () {
+      return props.countryData.population.toLocaleString();
+    });
+    return { filtration, countryFlagSrc, countryPopulation };
   },
 };
 </script>
