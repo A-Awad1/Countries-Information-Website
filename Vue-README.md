@@ -1,5 +1,3 @@
-# 06-vue-cli-rest-countries-api-website
-
 ## Project setup
 ```
 npm install
