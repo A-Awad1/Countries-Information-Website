@@ -1,4 +1,4 @@
-# Countries Information Website (REST Countries API) (Vanilla Javascript) (without any framework)
+# Countries Information Website (REST Countries API)
 
 **[See Website Live](https://countries-information-js-a-awad.netlify.app/)**
 
