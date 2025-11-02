@@ -1,5 +1,3 @@
-# Countries-Information-Website-Vue
-
 ## Project setup
 
 ```
